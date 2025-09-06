@@ -41,11 +41,11 @@ Route::prefix('customer')->group(function () {
 Route::prefix('driver')->group(function () {
     Route::get('/register', function () {
         return view('driver.register');
-    })->name('driver.register');
+    })->name('driver.register.form'); // renamed route name here
 
     Route::get('/login', function () {
         return view('driver.login');
-    })->name('driver.login');
+    })->name('driver.login.form');  // renamed route name here
 
     Route::post('/register', [DriverRegisterController::class, 'register'])->name('driver.register');
     Route::post('/login', [DriverLoginController::class, 'login'])->name('driver.login');
@@ -69,6 +69,7 @@ Route::middleware('auth:customer')->group(function () {
     Route::post('/service-requests/{id}/cancel', [ServiceRequestController::class, 'cancel'])->name('service_requests.cancel');
     Route::get('/driver-assignments/create', [DriverAssignmentController::class, 'create'])->name('driver-assignments.create');
     Route::post('/driver-assignments', [DriverAssignmentController::class, 'store'])->name('driver-assignments.store');
+    
     // Payment routes
     Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
     Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
@@ -82,10 +83,10 @@ Route::middleware(['auth:driver'])->group(function () {
         ->name('driver.dashboard');
 
     // Driver assignment routes
-    
     Route::post('/driver-assignments/{assignment}/accept', [DriverAssignmentController::class, 'accept'])->name('driver-assignments.accept')->middleware('auth:driver');
     Route::post('/driver-assignments/{assignment}/decline', [DriverAssignmentController::class, 'decline'])->name('driver-assignments.decline')->middleware('auth:driver');
 
     Route::get('/driver/assignments', [DriverDashboardController::class, 'assignments'])->name('driver.assignments');
 });
+
 Route::get('/service-requests/{id}', [ServiceRequestController::class, 'show'])->name('service_requests.centre');

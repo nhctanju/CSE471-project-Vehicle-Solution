@@ -251,7 +251,7 @@
         <h1 class="text-2xl font-bold text-red-600">Vehicle Solution</h1>
         <nav class="space-x-4">
             <a href="/login" class="text-gray-700 hover:text-red-600 font-medium">Login as Customer</a>
-            <a href="{{route('driver.login') }}" class="text-gray-700 hover:text-red-600 font-medium">Log in as Driver</a>
+            <a href="{{ route('driver.login.form') }}" class="text-gray-700 hover:text-red-600 font-medium">Log in as Driver</a>
         </nav>
     </header>
     <main class="flex-1 flex flex-col items-center justify-center px-4">
@@ -261,8 +261,8 @@
                 Vehicle Solution is your one-stop platform for connecting customers with reliable drivers for all your transportation needs. Whether you are looking to book a ride, manage your trips, or earn as a driver, our platform is designed to make your experience seamless, safe, and efficient.
             </p>
             <div class="flex flex-col md:flex-row gap-6 justify-center mb-6">
-                <a href="/register/customer" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg text-center transition">Customer Registration</a>
-                <a href="/register/driver" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg text-center transition">Driver Registration</a>
+                <a href="{{ route('customer.register.form') }}" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg text-center transition">Customer Registration</a>
+                <a href="{{ route('driver.register.form') }}" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg text-center transition">Driver Registration</a>
             </div>
             <div class="text-center text-gray-600">
                 <h3 class="text-lg font-semibold mb-2">Why Choose Us?</h3>

@@ -17,6 +17,7 @@
             <th>Amount</th>
             <th>Status</th>
             <th>Invoice</th>
+            <th>Download Invoice</th> <!-- Added a header for the button column -->
         </tr>
         </thead>
         <tbody>
@@ -33,13 +34,14 @@
                         N/A
                     @endif
                 </td>
+                <td>
+                    <!-- Fixed: Moved the download button inside the foreach loop where $payment is defined -->
+                    <a href="{{ route('payments.invoice', ['id' => $payment->id]) }}" class="btn btn-primary">Download Invoice</a>
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <div class="mt-4">
-        <a href="{{ route('payments.invoice', ['id' => $payment->id]) }}" class="btn btn-primary">Download Invoice</a>
-    </div>
 </div>
 </body>
 </html>

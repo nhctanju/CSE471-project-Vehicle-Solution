@@ -146,6 +146,9 @@
         <a href="{{ route('driver-assignments.create') }}" class="driver-request">Request a Driver</a>
         <a href="{{ route('payments.info') }}" class="payment-request"><button>Payment Information</button></a>
         <a href="{{ route('payments.index') }}" class="payment-request"><button>Pay Dues</button></a>
+        <a href="{{ route('cancelled.requests') }}" class="servicing-request" style="background:#bdbdbd;">
+            View Cancelled Requests
+        </a>
     </div>
 </body>
 </html>

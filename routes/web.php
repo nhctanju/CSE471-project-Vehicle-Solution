@@ -75,6 +75,9 @@ Route::middleware('auth:customer')->group(function () {
     Route::post('/payments', [PaymentController::class, 'store'])->name('payments.store');
     Route::get('/payments/{id}/invoice', [PaymentController::class, 'downloadInvoice'])->name('payments.invoice');
     Route::get('/payments/info', [PaymentController::class, 'info'])->name('payments.info');
+
+    // Cancelled requests route
+    Route::get('/cancelled-requests', [CustomerDashboardController::class, 'cancelledRequests'])->name('cancelled.requests');
 });
 
 // Protected routes for authenticated drivers
@@ -87,6 +90,7 @@ Route::middleware(['auth:driver'])->group(function () {
     Route::post('/driver-assignments/{assignment}/decline', [DriverAssignmentController::class, 'decline'])->name('driver-assignments.decline')->middleware('auth:driver');
 
     Route::get('/driver/assignments', [DriverDashboardController::class, 'assignments'])->name('driver.assignments');
+
 });
 
 Route::get('/service-requests/{id}', [ServiceRequestController::class, 'show'])->name('service_requests.centre');

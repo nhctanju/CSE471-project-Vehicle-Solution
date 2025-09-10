@@ -25,8 +25,8 @@ RUN composer install --no-dev --optimize-autoloader
 
 # Laravel setup
 RUN php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan config:cache
+    php artisan route:clear && \
+    php artisan view:clear
 
 # Expose HTTP port
 EXPOSE 80

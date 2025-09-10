@@ -207,7 +207,13 @@
         @php $notifications = auth('driver')->user()->unreadNotifications; @endphp
         @if($notifications->isEmpty())
             <p class="no-notifications">No new notifications.</p>
-            <p>Check for requests. <a class="view-requests-link" href="{{ route('driver.assignments') }}">View Requests</a></p>
+            
+            <p>Check for requests. 
+    <a class="view-requests-link" href="{{ route('driver.assignments') }}">
+        View Requests ({{ $pendingRequestsCount }})
+    </a>
+</p>
+            
         @else
             <ul style="padding-left: 0; list-style: none;">
                 @foreach($notifications as $notification)

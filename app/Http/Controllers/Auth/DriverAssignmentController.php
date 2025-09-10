@@ -7,6 +7,7 @@ use App\Models\DriverAssignment;
 use App\Notifications\AssignmentAcceptedNotification;
 use Illuminate\Support\Facades\Log;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Models\ServiceRequest;
 
 class DriverAssignmentController extends Controller
 {
@@ -60,7 +61,6 @@ class DriverAssignmentController extends Controller
         $assignment->assignment_status = 'assigned';
         $assignment->save();
 
-        // Notify customer and all drivers
         // $this->notifyAssignmentAccepted($assignment);
 
         return redirect()->route('driver.dashboard')->with('status', 'You have accepted the request.');
@@ -97,4 +97,6 @@ class DriverAssignmentController extends Controller
     //     $assignments = DriverAssignment::where('driver_id', auth('driver')->user()->id)->get();
     //     return view('driver.Dashboard', compact('assignments'));
     // }
+    
+    
 }

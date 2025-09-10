@@ -18,7 +18,6 @@ class CustomerLoginController extends Controller
         if (Auth::guard('customer')->attempt([
             'email' => $credentials['email'],
             'password' => $credentials['password'],
-            //'role' => 'customer',
         ])) {
             $request->session()->regenerate();
 

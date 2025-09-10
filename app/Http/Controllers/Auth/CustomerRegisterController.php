@@ -27,7 +27,6 @@ class CustomerRegisterController extends Controller
 
         Auth::guard('customer')->login($customer);
 
-        // Redirect to customer dashboard after registration and login
         return redirect()->route('customer.dashboard');
     }
 }

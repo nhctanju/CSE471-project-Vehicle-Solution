@@ -11,9 +11,6 @@ use App\Models\Driver;
 
 class ReviewController extends Controller
 {
-    /**
-     * Store a review after service completion.
-     */
     public function store(Request $request)
     {
         $data = $request->validate([

@@ -13,6 +13,10 @@ WORKDIR /var/www
 # Copy app files
 COPY . .
 
+# Set permissions for Laravel storage and cache
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
+
 # Copy default nginx config
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
